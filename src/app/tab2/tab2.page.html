@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Tab Two
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+	<ion-button size="block" (click)="startNdefDiscover()">Start Ndef</ion-button>
+	<ion-button size="block" (click)="startTagDiscover()">Start Tag</ion-button>
+	<ion-button size="block" (click)="startReaderMode()">Start Reader</ion-button>
+	<ion-button size="block" (click)="destroySubscriptions()" color="danger">Destroy</ion-button>
+	<ion-button size="block" (click)="share()" color="light">Share</ion-button>
+
+	<ion-card *ngIf="loadedNfc">
+		<ion-card-header>Id: {{NfcID}}</ion-card-header>
+		<ion-card-content><pre>{{loadedNfc | json}}</pre></ion-card-content>
+	</ion-card>
+</ion-content>
