@@ -31,19 +31,6 @@ export class Tab2Page {
 	this.destroySubscriptions();	
   }
 
-  startReaderMode(){
-  	this.subscriptions.push(
-  		this.nfc.readerMode(reader => { console.log('successfully attached reader listener', reader) }, (err) => { console.log('error attaching reader listener', err) })
-  		.subscribe(data => {
-	    	this.vibration.vibrate(500);
-	    	console.log(data, 'data')
-	    },
-	    err => {
-	    	console.log(err, 'err')
-	    })
-  	);
-  }
-
   startNdefDiscover(){
 	this.subscriptions.push(
 		this.nfc.addNdefListener(() => { console.log('successfully attached Tag listener') }, (err) => { console.log('error attaching Tag listener', err) })
